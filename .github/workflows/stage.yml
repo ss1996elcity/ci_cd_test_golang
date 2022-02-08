@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Unit Tests
-        run: make tests
+        run: make test
 
 
   build_and_push:

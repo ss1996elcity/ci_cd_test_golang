@@ -20,7 +20,7 @@ build: main.go go.mod
 	gofmt -w ./
 	go build -o ./$(EXECUTITION_FILE) ./
 
-test: main.go go.mod tests_main.go
+test: main.go go.mod main_test.go
 	go test -v ./...
 
 run: ./main

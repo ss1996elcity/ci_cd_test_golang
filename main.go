@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net"
 	"net/http"
-	"os"
 	"time"
+	"log"
+	"os"
 )
 
 func PrintGreet(name string) string {
