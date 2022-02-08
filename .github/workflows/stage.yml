@@ -9,9 +9,7 @@ env:
   DOCKER_HUB_NAME: "tss45elcity/"
   DOCKER_HUB_REPOSITORY: "repo_1"
   TAG: ":hello_ci_cd_test_golang_v1"
-  #FULL_NAME_IMAGE_FOR_DOCKERHUB: $(echo $env.DOCKER_HUB_NAME)$(echo $DOCKER_HUB_REPOSITORY)$(echo $TAG)
-  #
-  # $DOCKER_HUB_NAME/$DOCKER_HUB_REPOSITORY:$TAG
+
 jobs:
 
   tests:
@@ -49,20 +47,9 @@ jobs:
         with:
           images: tss45elcity/repo_1
       
-      #- name: Build docker container
-      #  run: make docker_build
-      
-      #- name: Push docker container
-      #  run: make docker_push
-      
-      #- name: Set Github variable (NEED FOR build and push)
-      #  run: echo "FULL_NAME_IMAGE_FOR_DOCKERHUB" >> $GITHUB_ENV
-      
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          #tags: tss45elcity/repo_1:hello_ci_cd_test_golang_v1
-          #tags: ${{ env.FULL_NAME_IMAGE_FOR_DOCKERHUB }}
           tags: ${{ env.DOCKER_HUB_NAME }}${{ env.DOCKER_HUB_REPOSITORY }}${{ env.TAG }}
           context: .
           push: true

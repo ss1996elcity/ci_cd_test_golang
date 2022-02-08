@@ -10,7 +10,7 @@ import (
 )
 
 func PrintGreet(name string) string {
-	return fmt.Sprintf("%s, %s", "Hello ", name)
+	return fmt.Sprintf("%s, %s", "Hello", name)
 }
 
 func BaseHandler(w http.ResponseWriter, r *http.Request) {
