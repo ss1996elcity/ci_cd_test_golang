@@ -1,0 +1,7 @@
+version: '3.2'
+services:
+  ci_cd_golang:
+     container_name: test_ci_cd_golang
+     image: hello_ci_cd_go:v1
+     ports:
+       - "8888:8080"
