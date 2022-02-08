@@ -8,6 +8,8 @@ COPY go.mod /project_files
 #RUN apt-get -y install make
 RUN cd /project_files
 #RUN make mod_refresh build
-RUN go build -o ./main ./
 RUN go mod tidy
-ENTRYPOINT ["/project_files/main ${SERVER_PORT_DEFAULT}"]
+RUN go build -o ./main ./
+#RUN ./main 8080
+#ENTRYPOINT ["/project_files/main 8080"]
+CMD /project_files/main $SERVER_PORT_DEFAULT
