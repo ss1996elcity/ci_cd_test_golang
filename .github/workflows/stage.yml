@@ -52,8 +52,8 @@ jobs:
         with:
           context: -t $(echo $FULL_NAME_IMAGE_FOR_DOCKERHUB) .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          #tags: ${{ steps.meta.outputs.tags }}
+          #labels: ${{ steps.meta.outputs.labels }}
         
 
   deploy:
@@ -68,7 +68,8 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSHKEY }}
+          password: ${{ secrets.PASSWORD }}
+          #key: ${{ secrets.SSHKEY }}
           source: "deploy/"
           target: "api"
           strip_components: 1
@@ -78,7 +79,8 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSHKEY }}
+          password: ${{ secrets.PASSWORD }}
+          #key: ${{ secrets.SSHKEY }}
           script: |
             # Run a new container from a new image
             cd api
