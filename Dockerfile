@@ -1,5 +1,5 @@
 FROM golang:alpine
-ENV SERVER_PORT_DEFAULT "8080"
+ENV SERVER_PORT_DEFAULT 8080
 WORKDIR /project_files
 COPY main_test.go /project_files
 COPY Makefile /project_files
