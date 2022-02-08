@@ -30,4 +30,5 @@ docker_build: Dockerfile go.mod Makefile main_test.go main.go
 	docker build -f Dockerfile -t $(REGISTRY)/$(IMAGE_TAG) .
 
 docker_push:
+	#docker login --username=$(DOCKER_USER) --password=$(DOCKER_PASS) $(DOCKER_HOST)
 	docker push $(REGISTRY)/$(IMAGE_TAG)
