@@ -6,10 +6,11 @@ on:
       - develop
 
 env:
-  DOCKER_HUB_NAME: "tss45elcity"
+  DOCKER_HUB_NAME: "tss45elcity/"
   DOCKER_HUB_REPOSITORY: "repo_1"
-  TAG: "hello_ci_cd_test_golang_v1"
-  FULL_NAME_IMAGE_FOR_DOCKERHUB: $(echo $DOCKER_HUB_NAME)/$(echo $DOCKER_HUB_REPOSITORY):$(echo $TAG)
+  TAG: ":hello_ci_cd_test_golang_v1"
+  FULL_NAME_IMAGE_FOR_DOCKERHUB:  ${{ env.DOCKER_HUB_NAME }}${{ env.DOCKER_HUB_REPOSITORY }}${{ env.TAG }}
+  #$(echo $env.DOCKER_HUB_NAME)/$(echo $DOCKER_HUB_REPOSITORY):$(echo $TAG)
   #FULL_NAME_IMAGE_FOR_DOCKERHUB: $DOCKER_HUB_NAME/$DOCKER_HUB_REPOSITORY:$TAG
 jobs:
 
