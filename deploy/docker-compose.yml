@@ -8,7 +8,7 @@ services:
        TAG: ":hello_ci_cd_test_golang_v1"
        FULL_NAME_IMAGE_FOR_DOCKERHUB: $$DOCKER_HUB_NAME$$DOCKER_HUB_REPOSITORY$$TAG
      container_name: test_ci_cd_golang
-     image: $$FULL_NAME_IMAGE_FOR_DOCKERHUB
-     #image: tss45elcity/repo_1:hello_ci_cd_test_golang_v1
+     #image: $$FULL_NAME_IMAGE_FOR_DOCKERHUB
+     image: tss45elcity/repo_1:hello_ci_cd_test_golang_v1
      ports:
        - "8888:8080"

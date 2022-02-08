@@ -16,7 +16,7 @@ func PrintGreet(name string) string {
 func BaseHandler(w http.ResponseWriter, r *http.Request) {
 
 	// CORS ======================================================================
-	w.Header().Set("Content-Type", "text/html; charset=ascii")
+	w.Header().Set("Content-Type",  "text/html; charset=ascii")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type,access-control-allow-origin, access-control-allow-headers")
 	// CORS ======================================================================
