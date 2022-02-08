@@ -26,7 +26,7 @@ test: main.go go.mod main_test.go
 run: ./main
 	./main $(PORT_DEFAULT)
 
-docker_build: Dockerfile go.mod Makefile tests_main.go main.go
+docker_build: Dockerfile go.mod Makefile main_test.go main.go
 	docker build -f Dockerfile -t $(REGISTRY)/$(IMAGE_TAG) .
 
 docker_push:
