@@ -28,3 +28,6 @@ run: ./main
 
 docker_build: Dockerfile go.mod Makefile tests_main.go main.go
 	docker build -f Dockerfile -t $(REGISTRY)/$(IMAGE_TAG) .
+
+docker_push:
+	docker push $(REGISTRY)/$(IMAGE_TAG)
