@@ -6,10 +6,10 @@ on:
       - develop
 
 env:
-  REGISTRY: "tss45elcity/repo_1"
-  API_IMAGE: "hello_ci_cd_go"
-  TAG: "v1"
-  FULL_NAME_IMAGE_FOR_DOCKERHUB: $(echo $REGISTRY)/(echo $API_IMAGE):$(echo $TAG)
+  DOCKER_HUB_NAME: "tss45elcity"
+  DOCKER_HUB_REPOSITORY: "repo_1"
+  TAG: "hello_ci_cd_test_golang_v1"
+  FULL_NAME_IMAGE_FOR_DOCKERHUB: $(echo $DOCKER_HUB_NAME)/$(echo $DOCKER_HUB_REPOSITORY):$(echo $TAG)
 jobs:
 
   tests:
@@ -56,8 +56,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          #context: -t $(echo $FULL_NAME_IMAGE_FOR_DOCKERHUB) .
-          context: .
+          context: -t $(echo $FULL_NAME_IMAGE_FOR_DOCKERHUB) .
+          #context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
